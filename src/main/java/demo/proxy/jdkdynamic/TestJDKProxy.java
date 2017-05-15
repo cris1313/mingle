@@ -8,6 +8,7 @@ import demo.proxy.Helloplm;
  */
 public class TestJDKProxy {
     public static void main(String[] args) {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         Hello hello = new Helloplm();
         DynamicProxy proxy = new DynamicProxy(hello);
         Hello helloProxy = proxy.getProxy();

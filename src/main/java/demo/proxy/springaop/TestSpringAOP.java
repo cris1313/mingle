@@ -1,7 +1,5 @@
 package demo.proxy.springaop;
 
-import demo.proxy.Hello;
-import demo.proxy.Helloplm;
 import org.springframework.aop.framework.ProxyFactory;
 
 /**
@@ -10,10 +8,14 @@ import org.springframework.aop.framework.ProxyFactory;
 public class TestSpringAOP {
     public static void main(String[] args) {
         ProxyFactory proxyFactory = new ProxyFactory();
-        proxyFactory.setTarget(new Helloplm());
+      //  proxyFactory.addInterface(Greet.class);
+        proxyFactory.setTarget(new Greetingimpl());
         proxyFactory.addAdvice(new HelloBeforeAdvice());
         proxyFactory.addAdvice(new HelloAfterAdvice());
-        Hello hello = (Hello)proxyFactory.getProxy();
-        hello.say(" springAOP");
+       // proxyFactory.setTargetClass(Greet.class);
+        Greetingimpl greetingimpl = (Greetingimpl) proxyFactory.getProxy();
+        greetingimpl.greet("c");
+       // Greet greet = (Greet)greetingimpl;
+       // greet.greet("c");
     }
 }
