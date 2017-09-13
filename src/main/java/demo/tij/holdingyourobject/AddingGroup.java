@@ -15,31 +15,40 @@ public class AddingGroup implements AddGroup{
         AddGroup a = new AddingGroup();
         JDKProxy jdkProxy = new JDKProxy(a);
         AddGroup aPro = jdkProxy.getProxy();
-//        aPro.addGroup1();
-        aPro.addGroup2();
+        long count=10000000;
+        aPro.addGroup1(count);
+        aPro.addGroup2(count);
+/*
+
+       AddingGroup a= new AddingGroup();
+        long count=10000000;
+       a.addGroup1(count);
+        a.addGroup2(count);
+*/
 
     }
 
     @Override
-    public void addGroup1() {
-        Integer[]moreInts=new Integer[100000];
-        for (int i=0;i<100000;i++) {
-            moreInts[i]=i;
-        }
-        Collection<Integer> collection = new ArrayList<>(Arrays.asList(1,2,4,6,7));
-        collection.addAll(Arrays.asList(moreInts));
-        System.out.println("slow");
+    public void addGroup1(long count) {
+        long start = System.currentTimeMillis();
 
+        for (int i=0;i<count;i++) {
+            Collection<Integer> collection = new ArrayList<Integer>();
+            collection.addAll(Arrays.asList(1,2,4,6,7));
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end-start);
+        System.out.println("slow");
     }
 
-    public void addGroup2(){
-        Integer[]moreInts=new Integer[100000];
-        for (int i=0;i<100000;i++) {
-            moreInts[i]=i;
+    public void addGroup2(long count){
+        long start = System.currentTimeMillis();
+        for (int i=0;i<count;i++) {
+            Collection<Integer> collection = new ArrayList<Integer>();
+            Collections.addAll(collection,1,2,4,6,7);
         }
-        Collection<Integer> collection = new ArrayList<>(Arrays.asList(1,2,4,6,7));
-        Collections.addAll(collection,moreInts);
-
+        long end = System.currentTimeMillis();
+        System.out.println(end-start);
         System.out.println("faster");
     }
 }

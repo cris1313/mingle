@@ -19,7 +19,7 @@ public class AnnotationTracker {
         for(int i:list) System.out.println("miss"+i);
     }
     public static void main(String[] args) {
-        List<Integer> ca = new ArrayList<>();
+        List<Integer> ca = new ArrayList<Integer>();
         Collections.addAll(ca,1,2,3,4);
         track(ca,ControllerCase.class);
     }
