@@ -6,39 +6,43 @@ package demo.sorting;
 public class Selection {
 
     public static void main(String[] args) {
-        Integer[] a = {2,7,4,6,8,9,2};
+        Integer[] a = {2, 7, 4, 6, 8, 9, 2};
         sort(a);
         show(a);
     }
 
-    public static void sort(Comparable[] a){
+    public static void sort(Comparable[] a) {
 
-        for (int i=0;i<a.length;i++){
+        for (int i = 0; i < a.length; i++) {
             int min = i;
-            for (int j=i;j<a.length;j++){
-                if (less(a[j],a[min]))
-                    min=j;
+            for (int j = i; j < a.length; j++) {
+                if (less(a[j], a[min]))
+                    min = j;
             }
-            exch(a,i,min);
+            exch(a, i, min);
         }
     }
-    private static boolean less(Comparable v,Comparable w){
-        return v.compareTo(w)<0;
+
+    private static boolean less(Comparable v, Comparable w) {
+        return v.compareTo(w) < 0;
     }
-    private static void exch(Comparable[] a,int i,int j){
+
+    private static void exch(Comparable[] a, int i, int j) {
         Comparable t = a[i];
         a[i] = a[j];
         a[j] = t;
     }
-    public static boolean isSorted(Comparable[] a){
-        for (int i = 0;i<a.length;i++){
-            if (less(a[i],a[i+1])) return false;
+
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (less(a[i], a[i + 1])) return false;
         }
         return true;
     }
-    public static void show(Comparable[] a){
-        for (int i =0;i<a.length;i++){
-            System.out.print(a[i]+" ");
+
+    public static void show(Comparable[] a) {
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
         }
     }
 
@@ -53,4 +57,27 @@ public class Selection {
      * 移动： 数据移动次数是最少的
      * 稳定性： 不稳定
      */
+
+    public void sort(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < a[min]) min = j;
+            }
+            int tmp = a[i];
+            a[i] = a[min];
+            a[min] = tmp;
+        }
+    }
+    void sortA(int[] a){
+        if (a==null) return;
+        for (int i = 0; i < a.length; i++) {
+            int min=i;
+            for (int j = i; j <a.length ; j++) {
+                if (a[min]>a[j]) min=j;
+            }
+            //exchange a[min]and a[i]
+        }
+    }
+
 }

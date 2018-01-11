@@ -8,7 +8,6 @@ import java.util.Set;
  */
 public class MyMap<K, V> extends AbstractMap {
     public MyMap() {
-
     }
 
     @Override

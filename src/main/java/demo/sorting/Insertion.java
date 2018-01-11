@@ -47,4 +47,17 @@ public class Insertion {
      * 输入： 输入元素的初始顺序对排序时间影响较大
      * 稳定性： 稳定
      */
+
+    public void sort(int[] a){
+        if(a==null) return;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j >0 ; j--) {
+                if (a[j]<a[j-1]) { //exch(a,i,j);
+                    int tmp = a[j-1];
+                    a[j-1]=a[j];
+                    a[j]=tmp;
+                }
+            }
+        }
+    }
 }
